@@ -1,4 +1,80 @@
+// $l-accent-color: orangered;
+// $l-background-color: white;
+// $l-text-color: black;
+// $button-text-color: $backgroud-color;
+
+// $d-accent-color: #D0D066;
+// $d-background-color: #333;
+// $d-text-color: white;
+
+
+
+
+
+@mixin light-mode {
+    // background-color: white;
+    // color: black;
+    // accent-color: orangered;
+
+    $backgroud-color: white;
+    $text-color: black;
+    $accent-color: orangered;
+}
+
+@mixin dark-mode {
+    // background-color: #333;
+    // color: white;
+    // accent-color: #d0d066;
+
+    $backgroud-color: #333;
+    $text-color: white;
+    $accent-color: #d0d066;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-color: $backgroud-color;
+    color: $text-color;
+    accent-color: $accent-color;
+
+    //@include light-mode;
+}
+
+.light {
+    @include light-mode;
+}
+
+.dark {
+    // $accent-color: #D0D066;
+    // $background-color: #333;
+    // $text-color: white;
+
+    // @include bg-color(#D0D066, #333, white);
+
+    @include dark-mode;
+}
+
+// @mixin bg-color($primary-bg: white, $primary-ac: orangered, $primary-text: black) {
+//     background-color: $primary-bg;
+//     accent-color: $primary-ac;
+//     color: $primary-text
+// }
+
+.title {
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
+// .theme-toggle-button {
+//     @include bg-color($accent-color, $text-color, -text)
+// }
