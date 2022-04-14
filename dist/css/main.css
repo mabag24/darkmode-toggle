@@ -18,6 +18,9 @@ body {
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
+  -webkit-transition: .7s;
+  transition: .7s;
+  overflow: hidden;
 }
 
 .light {
@@ -26,14 +29,113 @@ body {
   accent-color: orangered;
 }
 
+.light #toggle-btn {
+  background-color: orangered;
+}
+
+.light .sun {
+  fill: orangered;
+}
+
 .dark {
   background-color: #333;
   color: white;
   accent-color: #d0d066;
 }
 
+.dark #toggle-btn {
+  background-color: #d0d066;
+}
+
+.dark .moon {
+  fill: #d0d066;
+}
+
 .title {
   margin: 0;
   margin-bottom: .5rem;
+}
+
+#toggle-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  padding: .5em 1em;
+  border-radius: .3em;
+  border: none;
+  outline: none;
+  -webkit-transition: .7s;
+  transition: .7s;
+  color: white;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#toggle-btn:hover, #toggle-btn:focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.icon {
+  margin-right: .5em;
+}
+
+.sun-moon-container {
+  --rotation: 0;
+  position: absolute;
+  pointer-events: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  height: 200vmin;
+  -webkit-transform: rotate(calc(var(--rotation) * 1deg));
+          transform: rotate(calc(var(--rotation) * 1deg));
+  -webkit-transition: -webkit-transform .7s;
+  transition: -webkit-transform .7s;
+  transition: transform .7s;
+  transition: transform .7s, -webkit-transform .7s;
+}
+
+.sun,
+.moon {
+  position: absolute;
+  -webkit-transition: opacity, fill, .7s;
+  transition: opacity, fill, .7s;
+  width: 30px;
+  height: 30px;
+}
+
+.sun {
+  top: 5%;
+  opacity: 1;
+}
+
+.dark .sun {
+  opacity: 0;
+}
+
+.moon {
+  bottom: 5%;
+  opacity: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.dark .moon {
+  opacity: 1;
 }
 /*# sourceMappingURL=main.css.map */

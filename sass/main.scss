@@ -16,9 +16,11 @@
     // color: black;
     // accent-color: orangered;
 
-    $backgroud-color: white;
-    $text-color: black;
-    $accent-color: orangered;
+    background-color: white;
+    color: black;
+    accent-color: orangered;
+
+
 }
 
 @mixin dark-mode {
@@ -26,9 +28,9 @@
     // color: white;
     // accent-color: #d0d066;
 
-    $backgroud-color: #333;
-    $text-color: white;
-    $accent-color: #d0d066;
+    background-color: #333;
+    color: white;
+    accent-color: #d0d066;
 }
 
 * {
@@ -43,15 +45,27 @@ body {
     align-items: center;
     height: 100vh;
 
-    background-color: $backgroud-color;
-    color: $text-color;
-    accent-color: $accent-color;
+    transition: .7s;
+
+    overflow: hidden;
+    // background-color: $background-color;
+    // color: $text-color;
+    // accent-color: $accent-color;
 
     //@include light-mode;
 }
 
 .light {
     @include light-mode;
+
+
+    #toggle-btn {
+        background-color: orangered;
+    }
+
+    .sun {
+        fill: orangered;
+    }
 }
 
 .dark {
@@ -62,6 +76,15 @@ body {
     // @include bg-color(#D0D066, #333, white);
 
     @include dark-mode;
+
+    #toggle-btn {
+
+        background-color: #d0d066;
+    }
+
+    .moon {
+        fill: #d0d066
+    }
 }
 
 // @mixin bg-color($primary-bg: white, $primary-ac: orangered, $primary-text: black) {
@@ -77,4 +100,72 @@ body {
 
 // .theme-toggle-button {
 //     @include bg-color($accent-color, $text-color, -text)
+// }
+
+#toggle-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: .5em 1em;
+    border-radius: .3em;
+    border: none;
+    outline: none;
+    transition: .7s;
+    color: white;
+    transform: scale(1);
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+}
+
+.icon {
+    margin-right: .5em;
+}
+
+.sun-moon-container {
+    --rotation: 0;
+
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 200vmin;
+    transform: rotate(calc(var(--rotation) * 1deg));
+    transition: transform .7s;
+}
+
+.sun,
+.moon {
+    position: absolute;
+    transition: opacity, fill, .7s;
+    width: 30px;
+    height: 30px;
+}
+
+.sun {
+    top: 5%;
+    opacity: 1;
+}
+
+.dark .sun {
+    opacity: 0;
+}
+
+.moon {
+    bottom: 5%;
+    opacity: 0;
+    transform: rotate(180deg);
+}
+
+.dark .moon {
+    opacity: 1;
+}
+
+// .dark .sun-moon-container {
+//     --rotation: 180deg;
 // }
