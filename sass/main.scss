@@ -1,33 +1,11 @@
-// $l-accent-color: orangered;
-// $l-background-color: white;
-// $l-text-color: black;
-// $button-text-color: $backgroud-color;
-
-// $d-accent-color: #D0D066;
-// $d-background-color: #333;
-// $d-text-color: white;
-
-
-
-
-
 @mixin light-mode {
-    // background-color: white;
-    // color: black;
-    // accent-color: orangered;
 
     background-color: white;
     color: black;
     accent-color: orangered;
-
-
 }
 
 @mixin dark-mode {
-    // background-color: #333;
-    // color: white;
-    // accent-color: #d0d066;
-
     background-color: #333;
     color: white;
     accent-color: #d0d066;
@@ -48,11 +26,6 @@ body {
     transition: .7s;
 
     overflow: hidden;
-    // background-color: $background-color;
-    // color: $text-color;
-    // accent-color: $accent-color;
-
-    //@include light-mode;
 }
 
 .light {
@@ -69,11 +42,6 @@ body {
 }
 
 .dark {
-    // $accent-color: #D0D066;
-    // $background-color: #333;
-    // $text-color: white;
-
-    // @include bg-color(#D0D066, #333, white);
 
     @include dark-mode;
 
@@ -87,20 +55,11 @@ body {
     }
 }
 
-// @mixin bg-color($primary-bg: white, $primary-ac: orangered, $primary-text: black) {
-//     background-color: $primary-bg;
-//     accent-color: $primary-ac;
-//     color: $primary-text
-// }
-
 .title {
     margin: 0;
     margin-bottom: .5rem;
 }
 
-// .theme-toggle-button {
-//     @include bg-color($accent-color, $text-color, -text)
-// }
 
 #toggle-btn {
     display: flex;
@@ -165,7 +124,3 @@ body {
 .dark .moon {
     opacity: 1;
 }
-
-// .dark .sun-moon-container {
-//     --rotation: 180deg;
-// }
