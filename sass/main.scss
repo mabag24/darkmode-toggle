@@ -1,11 +1,12 @@
 @mixin light-mode {
-
+    // mixin for light colors
     background-color: white;
     color: black;
     accent-color: orangered;
 }
 
 @mixin dark-mode {
+    // mixin for dark colors
     background-color: #333;
     color: white;
     accent-color: #d0d066;
@@ -31,7 +32,7 @@ body {
 .light {
     @include light-mode;
 
-
+    // light class that applies the light mixin and also changes the color of the button and the sun
     #toggle-btn {
         background-color: orangered;
     }
@@ -42,6 +43,7 @@ body {
 }
 
 .dark {
+    // dark class that applies the dark mixin and also changes the color of the button and the moon
 
     @include dark-mode;
 
@@ -85,6 +87,7 @@ body {
 }
 
 .sun-moon-container {
+    // sets a css variable so that it can be altered by the js
     --rotation: 0;
 
     position: absolute;
@@ -108,10 +111,11 @@ body {
 
 .sun {
     top: 5%;
-    opacity: 1;
+    opacity: 1; // sets the sun to visible while in default theme (light)
 }
 
 .dark .sun {
+    // sets the sun to transparent while in dark mode
     opacity: 0;
 }
 
